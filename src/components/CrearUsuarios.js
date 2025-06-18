@@ -1,7 +1,8 @@
 import React from 'react'
-
-export const CrearUsuarios = () => {
-  return (
-    <div>CrearUsuarios</div>
-  )
+const CrearUsuarios = () => {
+    return (
+        <div>CrearUsuarios</div>
+    )
 }
+export default CrearUsuarios;
+
