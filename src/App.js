@@ -12,7 +12,7 @@ function App() {
   return (
     <div className="App">
       <Navegacion />
-      <div class="container p-4 border">
+      <div className="container p-4 border">
         <Routes>
           <Route path='/' element={<ListaUsuario />} />
           <Route path='/CrearUsuarios' element={<CrearUsuarios />} />
