@@ -1,5 +1,5 @@
 import { useState } from "react";
-
+import axios from 'axios'
 const CrearUsuarios = () => {
   //logic here
 
@@ -18,9 +18,21 @@ const CrearUsuarios = () => {
     setUsuario({ ...usuario, [name]: value });
   };
 
-  const guardarDatos = (e) => {
+  const guardarDatos = async(e) => {
     e.preventDefault();
-    console.log(usuario);
+    // console.log(usuario);
+
+    // logica para la peticion post
+
+    const newUser = {
+      nombre: usuario.nombre,
+      apellido: usuario.apellido,
+      edad: usuario.edad,
+      telefono: usuario.telefono,
+      correo: usuario.correo,
+    };
+
+    await axios.post('http://localhost:4000/api/usuario',newUser)
   };
 
   return (
@@ -29,9 +41,7 @@ const CrearUsuarios = () => {
         <form onSubmit={guardarDatos}>
           <h2 className="text-center mb-1">Crear usuario</h2>
           <div className="mb-3">
-            <label className="form-label">
-              Nombre
-            </label>
+            <label className="form-label">Nombre</label>
             <input
               type="text"
               className="form-control"
@@ -44,9 +54,7 @@ const CrearUsuarios = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
-              Apellido
-            </label>
+            <label className="form-label">Apellido</label>
             <input
               type="text"
               className="form-control"
@@ -59,9 +67,7 @@ const CrearUsuarios = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
-              Edad
-            </label>
+            <label className="form-label">Edad</label>
             <input
               type="number"
               className="form-control"
@@ -74,9 +80,7 @@ const CrearUsuarios = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
-              Telefono
-            </label>
+            <label className="form-label">Telefono</label>
             <input
               type="number"
               className="form-control"
@@ -89,9 +93,7 @@ const CrearUsuarios = () => {
             />
           </div>
           <div className="mb-3">
-            <label className="form-label">
-              Email
-            </label>
+            <label className="form-label">Email</label>
             <input
               type="email"
               className="form-control"
